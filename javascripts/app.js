@@ -5,6 +5,7 @@ $(document).ready(function() {
   	
   	el:$('.mainblock'),
 
+
   	events: {
   		"mouseover .aboutme": "onMouseAbout",
   		"mouseover .things":"onMouseThings",
@@ -19,6 +20,7 @@ $(document).ready(function() {
 
   	initialize: function () {
   		var self = this
+      self.onClickAbout()
   	},
 
   	onMouseAbout: function() {
