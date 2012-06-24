@@ -13,7 +13,8 @@ $(document).ready(function() {
   		"mouseout .things": "onMouseoutThings",
   		"mouseout .contact": "onMouseoutContact",
       "click .aboutme": "onClickAbout",
-      "click .things": "onClickThings"
+      "click .things": "onClickThings",
+      "click .contact": "onClickContact"
   	},
 
   	initialize: function () {
@@ -57,7 +58,7 @@ $(document).ready(function() {
       $('.aboutme').addClass('mclick')
       $('.tdo').fadeOut("slow",function() {
         $('.abtme').css('visibility','visible') 
-        $('.abtme').show() 
+        $('.abtme').fadeIn() 
       })
       
     },
@@ -65,11 +66,22 @@ $(document).ready(function() {
     onClickThings: function() {
       var self = this
       $('.aboutme').removeClass('mclick')
+      $('.contact').removeClass('mclick')
       $('.things').addClass('mclick')
       $('.abtme').fadeOut("slow",function() {
         $('.tdo').css('visibility','visible')
-        $('.tdo').show()
+        $('.tdo').fadeIn()
       })
+    },
+
+    onClickContact: function() {
+       var self = this
+      $('.aboutme').removeClass('mclick')
+      $('.things').removeClass('mclick')
+      $('.contact').addClass('mclick')
+      $('.abtme').css('visibility','hidden')
+      $('.tdo').css('visibility','hidden')
+      $('.ct').css('visibility','visible')
     }
   })//menuitem closes
 
