@@ -11,7 +11,9 @@ $(document).ready(function() {
   		"mouseover .contact": "onMouseContact",
   		"mouseout .aboutme": "onMouseoutAbout",
   		"mouseout .things": "onMouseoutThings",
-  		"mouseout .contact": "onMouseoutContact"
+  		"mouseout .contact": "onMouseoutContact",
+      "click .aboutme": "onClickAbout",
+      "click .things": "onClickThings"
   	},
 
   	initialize: function () {
@@ -20,37 +22,59 @@ $(document).ready(function() {
 
   	onMouseAbout: function() {
   		var self = this
-  		$('.aboutme').css('color','red')
+  		$('.aboutme').addClass('mover')
   	},
 
   	onMouseThings: function() {
   		var self = this
-  		$('.things').css('color','red')
+  		$('.things').addClass('mover')
   	},
 
   	onMouseContact: function() {
   		var self = this
-  		$('.contact').css('color','red')
+  		$('.contact').addClass('mover')
   	},
 
   	onMouseoutAbout: function() {
   		var self = this
-  		$('.aboutme').css('color','#333')
+  		$('.aboutme').removeClass('mover')
   	},
 
   	onMouseoutThings:function() {
   		var self = this
-  		$('.things').css('color','#333')
+  		$('.things').removeClass('mover')
   	},
 
   	onMouseoutContact: function() {
   		var self = this
-  		$('.contact').css('color','#333')
-  	}
+  		$('.contact').removeClass('mover')
+  	},
+
+    onClickAbout: function() {
+      var self = this
+      $('.contact').removeClass('mclick')
+      $('.things').removeClass('mclick')
+      $('.aboutme').addClass('mclick')
+      $('.tdo').fadeOut("slow",function() {
+        $('.abtme').css('visibility','visible') 
+        $('.abtme').show() 
+      })
+      
+    },
+
+    onClickThings: function() {
+      var self = this
+      $('.aboutme').removeClass('mclick')
+      $('.things').addClass('mclick')
+      $('.abtme').fadeOut("slow",function() {
+        $('.tdo').css('visibility','visible')
+        $('.tdo').show()
+      })
+    }
   })//menuitem closes
 
-  var ContentView = Backbone.View.extend({
-  	el:$(''),
-  })//contentview closes
+  // var ContentView = Backbone.View.extend({
+  // 	el:$(''),
+  // })//contentview closes
   var nview = new MenuView()
 })
